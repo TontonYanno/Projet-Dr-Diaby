@@ -1,0 +1,14 @@
+.image {
+    width: 1920px;
+    height: 970px;
+  }
+  
+  .image .thumblytics {
+    position: fixed;
+    width: 1920px;
+    height: 970px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  
