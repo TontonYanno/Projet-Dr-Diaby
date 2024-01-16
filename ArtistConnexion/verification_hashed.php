@@ -18,7 +18,7 @@ error_reporting(E_ALL);
                 $_SESSION['label']=$row['label'];
                 $_SESSION['id']=$row['id'];
                 $_SESSION['label']=$row['label'];
-                header("Location:profil.php?id".$_SESSION['id']);
+                header("Location:profile.php?id=".$_SESSION['id']);
             } 
         } 
         else{

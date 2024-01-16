@@ -4,6 +4,25 @@ $_SESSION['label'];
 $_SESSION['nom'];
 $_SESSION['id'];
 
+//disk creation
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $title=$_POST['title'];
+    $id=$_SESSION['id'];
+    function createdisk($title, int $id){
+        require_once "../ArtistConnexion/connexionPDO.php";
+        $sql = "INSERT INTO `disque` ( `titre`, `date`, `id_artiste`, `id_groupe`) VALUES (:a, current_timestamp(),:b, NULL);";
+        $req=$connexion->prepare($sql);
+        $req->bindValue(':a',$title);
+        $req->bindValue(':b',$id);
+        $req->execute();
+    }
+    if (isset($_POST['create'])) {
+        createdisk($title,$id);
+    }
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -32,18 +51,17 @@ $_SESSION['id'];
     </section>
     
     <section>
-        <form action="../ArtistConnexion/permission/createdisk.php" method="post" class="container">
+        <form  method="post" class="container">
             <div class="form">
                 <h2>Add disque</h2>
                 <div class="inputBox">
-                    <input type="text" placeholder="Titre du disque">
+                    <input type="text" name="title" placeholder="Titre du disque">
                 </div>
                 <div class="inputBox">
-                    <input type="submit" value="Add">
+                    <input type="submit" name="create" value="Add">
                 </div>
             </div>
         </form>
-    
     </section>
     
     
