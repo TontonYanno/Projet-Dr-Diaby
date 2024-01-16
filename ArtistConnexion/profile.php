@@ -19,10 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if (isset($_POST['create'])) {
         createdisk($title,$id);
     }
-
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="style/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
     <section>
@@ -46,24 +44,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
         </nav>
     </section>
-    <section class="fonctionalite">
-        <input class="button"  type="button" value="add disque">
-    </section>
-    
+    <br>
     <section>
-        <form  method="post" class="container">
-            <div class="form">
-                <h2>Add disque</h2>
-                <div class="inputBox">
-                    <input type="text" name="title" placeholder="Titre du disque">
-                </div>
-                <div class="inputBox">
-                    <input type="submit" name="create" value="Add">
-                </div>
+        <form method="post" class='w-25 border  rounded '>
+            <div class="mb-3 ">
+                <label for="exampleInputEmail1" class="form-label w-75">titre du disque </label>
+                <input type="text" name="title" class="form-control w-75"  aria-describedby="emailHelp">
             </div>
+           
+            <button type="submit" name="create" class="btn btn-primary">Ajouter</button>
         </form>
     </section>
-    
+
+    <section>
+        
+    </section>
+   
     
 </body>
 </html>
