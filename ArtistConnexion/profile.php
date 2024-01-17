@@ -1,25 +1,35 @@
 <?php
-session_start();
-$_SESSION['label'];
-$_SESSION['nom'];
-$_SESSION['id'];
+    ini_set('display_errors',1);
+    error_reporting(E_ALL);
+    session_start();
+    $_SESSION['label'];
+    $_SESSION['nom'];
+    $_SESSION['id'];
+    $id = $_SESSION['id'];
+
+// list of disk
+    require "../ArtistConnexion/connexionPDO.php";
+    $list="SELECT * FROM `disque` WHERE `id_artiste`= $id";
+    $req=$connexion->query($list);
+    $rows = $req->fetchAll();
+
 
 //disk creation
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $title=$_POST['title'];
-    $id=$_SESSION['id'];
-    function createdisk($title, int $id){
-        require_once "../ArtistConnexion/connexionPDO.php";
-        $sql = "INSERT INTO `disque` ( `titre`, `date`, `id_artiste`, `id_groupe`) VALUES (:a, current_timestamp(),:b, NULL);";
-        $req=$connexion->prepare($sql);
-        $req->bindValue(':a',$title);
-        $req->bindValue(':b',$id);
-        $req->execute();
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $title=$_POST['title'];
+        function createdisk($title, int $id){
+            require_once "../ArtistConnexion/connexionPDO.php";
+            $sql = "INSERT INTO `disque` ( `titre`, `date`, `id_artiste`, `id_groupe`) VALUES (:a, current_timestamp(),:b, NULL);";
+            $req=$connexion->prepare($sql);
+            $req->bindValue(':a',$title);
+            $req->bindValue(':b',$id);
+            $req->execute();
+        }
+        if (isset($_POST['create'])) {
+            createdisk($title,$id);
+        }
     }
-    if (isset($_POST['create'])) {
-        createdisk($title,$id);
-    }
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -55,9 +65,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <button type="submit" name="create" class="btn btn-primary">Ajouter</button>
         </form>
     </section>
-
+    <br>
     <section>
-        
+        <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Titre</th>
+                <th>Année</th>
+                <th>classe</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php 
+             
+            foreach($rows as $row): ?>
+                <tr>
+                    <td><?=$row['id']?></td>
+                    <td><?=$row['titre']?></td>
+                    <td><?=$row['date']?></td>                
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+
+        </table>
     </section>
    
     
