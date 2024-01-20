@@ -8,10 +8,25 @@
 <body>
     <h2>Formulaire de creation </h2>
     <form action="registration.php" method="post">
-        <input type="text" required  name="nom"placeholder="enter your name">
+        <input type="text" required  name="nom"placeholder="enter your name"> 
+        <br>
         <input type="text"name="label" required  placeholder="enter your label">
+        <br>
         <input type="email" name="email" required placeholder="enter your email">
+        <br>
         <input type="password" name="password" required  placeholder="enter your password">
+        <br>
+        <div>
+            <input type="radio" id="huey" name="type" value="artiste" checked />
+            <label for="artiste">artiste</label>
+        </div>
+        
+        <div>
+            <input type="radio" id="dewey" name="type" value="groupe" />
+            <label for="groupe">Groupe</label>
+        </div>
+        
+         
         <button type="submit">create</button>
     </form>
     

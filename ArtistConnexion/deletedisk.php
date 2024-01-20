@@ -5,5 +5,9 @@
     $sql= " DELETE FROM disque WHERE `disque`.`id` = $id ";
     $req= $connexion->query($sql);
     $connexion=null;
-    header("Location:profile.php");
+    if ($_GET['type']=="artiste") {
+        header("Location:profileartiste.php");
+    }else{
+        header("Location:profilegroupe.php");
+    }
 ?>

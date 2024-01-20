@@ -13,11 +13,12 @@
         $id = $_SESSION['id'];
         function createdisk($title, $id){
             require_once "../ArtistConnexion/connexionPDO.php";
-            $sql = "INSERT INTO `disque` ( `titre`, `date`, `id_artiste`, `id_groupe`) VALUES (:a, current_timestamp(),:b, NULL);";
+            $sql = "INSERT INTO `disque` ( `titre`, `date`, `id_artiste`, `id_groupe`) VALUES (:a, current_timestamp(), null,:b);";
             $req=$connexion->prepare($sql);
             $req->bindValue(':a',$title);
             $req->bindValue(':b',$id);
             $req->execute();
+            $connexion=null;
         }
         if (isset($_POST['create'])) {
             createdisk($title,$id);
@@ -25,7 +26,7 @@
     }
 // list of disk
     require "../ArtistConnexion/connexionPDO.php";
-    $list="SELECT `disque`.id , titre , `artiste`.label , `date` FROM `disque` ,`artiste`  WHERE `id_artiste`= $id AND `artiste`.id=$id ORDER BY `date` desc ";
+    $list="SELECT `disque`.id , titre , `groupe`.label , `date` FROM `disque` ,`groupe`  WHERE `id_groupe`= $id AND `groupe`.id=$id ORDER BY `date` desc ";
     $req=$connexion->query($list);
     $rows = $req->fetchAll();
     $connexion=null; 
@@ -92,8 +93,8 @@
                         <td><?=$row['date']?></td>
                         <td><?=$_SESSION['label']?></td>  
                         <td>
-                            <a href="updatedisk.php?id=<?=$row['id']?>">update</a>
-                            <a href="deletedisk.php?id=<?=$row['id']?>">delete</a>
+                            <a href="updatedisk.php?id=<?=$row['id']?>&type=groupe">update</a>
+                            <a href="deletedisk.php?id=<?=$row['id']?>&type=groupe">delete</a>
                         </td>              
                     </tr>
                 <?php endforeach;?>
