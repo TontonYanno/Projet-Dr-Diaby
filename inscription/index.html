@@ -3,32 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>artiste</title>
-</head>
+    <title>inscription</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"></head>
+    <style>
+        .composants{
+            display: flex;
+            flex-direction: column;            
+        }
+    </style>
 <body>
-    <h2>Formulaire de creation </h2>
-    <form action="registration.php" method="post">
-        <input type="text" required  name="nom"placeholder="enter your name"> 
-        <br>
-        <input type="text"name="label" required  placeholder="enter your label">
-        <br>
-        <input type="email" name="email" required placeholder="enter your email">
-        <br>
-        <input type="password" name="password" required  placeholder="enter your password">
-        <br>
-        <div>
-            <input type="radio" id="huey" name="type" value="artiste" checked />
-            <label for="artiste">artiste</label>
+    <h2 class=" m-auto " style="width: max-content;">Formulaire d'inscription </h2>
+    <br>
+    <form class="form " action="registration.php" method="post">
+        <div class="composant w-25 h-25 m-auto" >
+            <div class="icon w-25 h-25 m-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+            </div>
         </div>
-        
-        <div>
-            <input type="radio" id="dewey" name="type" value="groupe" />
-            <label for="groupe">Groupe</label>
+        <br>
+        <div class="border rounded  m-auto" style="width:max-content;">
+            <br>
+            <div class="composants">
+                <label class="m-auto" for="nom"> Veuillez entrer votre nom</label>
+                <input class="m-auto" type="text" required  name="nom"placeholder="J Cole"> 
+            </div>
+            <div class="composants">
+                <label class="m-auto" for="nom"> Veuillez entrer votre label</label>
+                <input class="m-auto" type="text"name="label" required  placeholder="label music">
+            </div>
+            <div class="composants">
+                <label class="m-auto" for="email"> Veuillez entrer votre email</label>
+                <input class="m-auto" type="email" name="email" required placeholder="example@gmail.com">
+            </div>
+            <div class="composants">
+                <label class="m-auto" for="password"> Veuillez entrer votre mot de passe</label>
+                <input class="m-auto" type="password" name="password" required  placeholder="password">
+            </div>
+            <div class="choice w- m-auto " >
+                <div class="m-auto w-50" >
+                    <input type="radio" id="huey" name="type" value="artiste" checked />
+                    <label for="artiste">artiste</label>
+                </div >
+                
+                <div class="m-auto w-50" >
+                    <input type="radio" id="dewey" name="type" value="groupe" />
+                    <label for="groupe">Groupe</label>
+                </div>
+                <button  class=" btn btn-primary mx-auto d-flex " type="submit">create</button>
+                <br>
+            </div>
         </div>
-        
-         
-        <button type="submit">create</button>
     </form>
-    
 </body>
 </html>
