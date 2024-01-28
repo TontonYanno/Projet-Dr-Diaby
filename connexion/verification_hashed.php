@@ -25,7 +25,8 @@
                 } 
             } 
             else{
-                echo "erreur de connexion";
+                header("Location:../404/index.php");
+                // echo "erreur de connexion";
             }
             $conn=null;
         }else {
@@ -47,7 +48,7 @@
                 } 
             } 
             else{
-                echo "erreur de connexion";
+                header("Location:../404/index.php");
             }
             $conn=null;  
         }
