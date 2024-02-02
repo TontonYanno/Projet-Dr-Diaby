@@ -1,16 +1,16 @@
 <html>
     <head>
         <title>Rock Generation</title>
-        <link rel="stylesheet" href="../Disco/project/style.css">
+        <link rel="stylesheet" href="../project/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"></head>
     </head>
     <body>
         <div class="contenair">
             <div class="navbar">
-                <img src="../Disco/project/Media/logo.png" class="logo">
+                <img src="../project/Media/logo.png" class="logo">
                 <ul>
                     <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Playlist</a></li>
+                    <li><a href="http://localhost/Disco/compilation/compilation.php">Playlist</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Dropdown link
@@ -21,8 +21,8 @@
                           <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                         </ul>
                       </li>
-              
-                    <li><a href="#">Menu</a></li>
+
+                    <li><a href="http://localhost/Disco/inscription/">Inscription</a></li>
                     <li><a href="#">A Propos</a></li>
                 </ul>
             </div>
@@ -32,7 +32,7 @@
                </div>
                <div class="right-col">
                    <p>Lancer La Musique</p>
-                   <img src="../Disco/project/Media/play.png" id="icon">
+                   <img src="../project/Media/play.png" id="icon">
                </div>
             </div>
 
@@ -50,10 +50,10 @@
         icon.onclick = function(){
             if (mySong.paused) {
                 mySong.play();
-                icon.src = "/project/Media/pause.png"
+                icon.src = "../project/Media/pause.png"
             } else {
                 mySong.pause();
-                icon.src = "/project/Media/play.png"
+                icon.src = "../project/Media/play.png"
             }
         }
     </script>
