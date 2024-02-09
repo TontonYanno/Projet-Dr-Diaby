@@ -1,28 +1,10 @@
 <?php
-    ini_set('display_errors',1);
-    error_reporting(E_ALL);
     session_start();
     $_SESSION['label'];
     $_SESSION['nom'];
-    $_SESSION['id'];
     $id = $_SESSION['id'];
-
-//disk creation
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $title=$_POST['title'];
-        $id = $_SESSION['id'];
-        function createdisk($title, $id){
-            require_once "../connexion/connexionPDO.php";
-            $sql = "INSERT INTO `disque` ( `titre`, `date`, `id_artiste`, `id_groupe`) VALUES (:a, current_timestamp(), null,:b);";
-            $req=$connexion->prepare($sql);
-            $req->bindValue(':a',$title);
-            $req->bindValue(':b',$id);
-            $req->execute();
-            $connexion=null;
-        }
-        if (isset($_POST['create'])) {
-            createdisk($title,$id);
-        }
+    if (!$_SESSION) {
+        header("Location:index.html"); 
     }
 // list of disk
     require "../connexion/connexionPDO.php";
@@ -74,14 +56,14 @@
     </section>
     <br>
     <section>
-        <form method="post" class='w-25 border rounded mx-auto '>
+        <form action="createdisk.php" method="post" class='w-25 border rounded mx-auto '>
             <div class="mb-3 ">
                 <label for="exampleInputEmail1" class="form-label d-flex mx-auto" style="width:max-content;">Nouveau disque</label>
                 <input type="text" name="title" class="form-control w-75 m-auto" placeholder="example:Circles" >
             </div>
            <div>
            </div>
-            <button type="submit" required name="create" class="btn btn-primary d-flex mx-auto">Ajouter</button>
+            <button type="submit" required name="groupe" class="btn btn-primary d-flex mx-auto">Ajouter</button>
             <br>
         </form>
     </section>

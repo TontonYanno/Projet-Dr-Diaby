@@ -1,5 +1,5 @@
 <?php 
-    $_GET['id'];
-    // session_destroy();
-
+    session_start();
+    $_SESSION=array();
+    session_destroy();
     header("Location:index.html");

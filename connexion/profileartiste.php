@@ -1,32 +1,15 @@
 <?php
-    ini_set('display_errors',1);
-    error_reporting(E_ALL);
     session_start();
+    $id=$_SESSION['id'];
     $_SESSION['label'];
     $_SESSION['nom'];
-    $_SESSION['id'];
-    $id = $_SESSION['id'];
-
-//disk creation
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $title=$_POST['title'];
-        $id = $_SESSION['id'];
-        function createdisk($title, $id){
-            require_once "../connexion/connexionPDO.php";
-            $sql = "INSERT INTO `disque` ( `titre`, `date`, `id_artiste`, `id_groupe`) VALUES (:a, current_timestamp(),:b, NULL);";
-            $req=$connexion->prepare($sql);
-            $req->bindValue(':a',$title);
-            $req->bindValue(':b',$id);
-            $req->execute();
-            $connexion=null;
-        }
-        if (isset($_POST['create'])) {
-            createdisk($title,$id);
-        }
+    if (!$_SESSION) {
+        header("Location:index.html"); 
     }
+
 // list of disk
     require "../connexion/connexionPDO.php";
-    $list="SELECT `disque`.id , titre , `artiste`.label , `date` FROM `disque` ,`artiste`  WHERE `id_artiste`= $id AND `artiste`.id=$id ORDER BY `date` desc ";
+    $list="SELECT `disque`.id , titre , `artiste`.label  ,`artiste`.nom , `date` FROM `disque` ,`artiste`  WHERE `id_artiste`= $id AND `artiste`.id=$id ORDER BY `date` desc ";
     $req=$connexion->query($list);
     $rows = $req->fetchAll();
     $connexion=null; 
@@ -74,14 +57,16 @@
     </section>
     <br>
     <section>
-        <form method="post" class='w-25 border rounded mx-auto '>
+        <!-- j'envoie le form avec type artite pour faire la difference quand je vais creer les disque   -->
+        <form action="createdisk.php" method="post" class='w-25 border rounded mx-auto '>
             <div class="mb-3 ">
                 <label for="exampleInputEmail1" class="form-label d-flex mx-auto" style="width:max-content;">Nouveau disque</label>
                 <input type="text" name="title" class="form-control w-75 m-auto" placeholder="example:Circles" >
             </div>
            <div>
+            <!-- <a href="createdisk.php?$type='artiste'" type="submit" class="btn btn-primary d-flex mx-auto">Ajouter</a> -->
+               <button type="submit" required name="artiste" class="btn btn-primary d-flex mx-auto">Ajouter</button>
            </div>
-            <button type="submit" required name="create" class="btn btn-primary d-flex mx-auto">Ajouter</button>
             <br>
         </form>
     </section>
@@ -98,8 +83,9 @@
                 </tr>
             </thead>
             <tbody>
+                
                 <?php 
-                foreach($rows as $row): ?>
+                 foreach($rows as $row): ?>
                     <tr>
                         <td><?=$row['id']?></td>
                         <td><?=$row['titre']?></td>
@@ -110,7 +96,7 @@
                             <a href="deletedisk.php?id=<?=$row['id']?>&type=artiste">delete</a>
                         </td>              
                     </tr>
-                <?php endforeach;?>
+                <?php  endforeach;?>
             </tbody>
         </table>
     </section>

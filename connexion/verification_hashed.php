@@ -1,7 +1,6 @@
 <?php
-    ini_set('display_errors',1);
-    error_reporting(E_ALL);
-    
+    session_start();
+    $_SESSION['nom'];
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
         $email=$_POST["email"];
         $password=$_POST["password"];
@@ -21,7 +20,7 @@
                     $_SESSION['label']=$row['label'];
                     $_SESSION['id']=$row['id'];
                     $_SESSION['label']=$row['label'];
-                    header("Location:profileartiste.php?type=".$_POST['type']."&id=".$_SESSION['id']);
+                    header("Location:profileartiste.php");
                 } 
             } 
             else{
@@ -39,12 +38,12 @@
                 $emailbyrow=$row["email"];
                 $passwordhashed=$row['password'];  
                 if(crypt($password,$passwordhashed)){
-                    session_start();
+                    // session_start();
                     $_SESSION['nom']=$row['nom'];
                     $_SESSION['label']=$row['label'];
                     $_SESSION['id']=$row['id'];
                     $_SESSION['label']=$row['label'];
-                    header("Location:profilegroupe.php?type=".$_POST['type']."&id=".$_SESSION['id']);
+                    header("Location:profilegroupe.php");
                 } 
             } 
             else{
