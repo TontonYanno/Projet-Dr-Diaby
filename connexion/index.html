@@ -1,41 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"></head>
-    <title>Connexion</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disco| Login</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../inscription/asset/plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="../inscription/asset/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../inscription/asset/dist/css/adminlte.min.css">
 </head>
-<body>
-    <h2 class="mx-auto" style="width: max-content;">Connexion</h2>
-    <form action="verification_hashed.php" method="post">
-        <div class="composant w-25 h-25 m-auto" >
-            <div class="icon w-25 h-25 m-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <h1>
+        <span class="fas fa-user h-50 w-50"></span>
+
+      </h1>
+      <!-- <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a> -->
+    </div>
+    <div class="card-body">
+      <h1 class="login-box-msg">Login</h1>
+
+      <form class="border-rounded" action="../connexion/verification_hashed.php" method="post">
+        <div class="input-group mb-3">
+          <input type="email" name="email" required class="form-control" placeholder="Email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
             </div>
+          </div>
         </div>
-        <br>
-        <div class="rounded border  mx-auto" style="width: max-content;">
-            <br>
-            <input class="d-flex mx-auto"style="width: 90%;"  type="email" name="email" required  placeholder="enter your email"> <br>
-            <input class="d-flex mx-auto"style="width: 90%;" type="password" name="password" required  placeholder="enter your password" >
-            
-            <div class="mx-auto d-flex" style="width: 90%;" >
+
+        <div class="input-group mb-3">
+          <input type="password" name="password" required class="form-control" placeholder="Votre mot de passe">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col ">
+          <div class="choice w- m-auto " >
+            <div class="m-auto w-50" >
                 <input type="radio" id="huey" name="type" value="artiste" checked />
                 <label for="artiste">artiste</label>
-            </div>
+            </div >
             
-            <div class=" mx-auto d-flex" style="width: 90%;">
+            <div class="m-auto w-50" >
                 <input type="radio" id="dewey" name="type" value="groupe" />
                 <label for="groupe">Groupe</label>
             </div>
-            <br>
-            <button class="mx-auto d-flex btn btn-info" type="submit">valider</button>
-            <a href="http://localhost/Disco/project/html.html" class="btn btn-danger d-flex m-auto" style="width: max-content;">accueil</a>
-            <br>
-            <br>
         </div>
-        </form>
-    
+
+          <!-- /.col -->
+          <div class="col-6  m-auto">
+            <button type="submit" class="btn btn-primary btn-block">Connexion</button>
+            <a  href="../project/html.html" type="submit" class="btn btn-danger btn-block">Accueil</a>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <a href="../inscription/register.html" class="text-center">Pas encore inscrit? Je veut m'inscrire</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+<!-- jQuery -->
+<script src="../inscription/asset/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../inscription/asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../inscription/asset/dist/js/adminlte.min.js"></script>
 </body>
 </html>
