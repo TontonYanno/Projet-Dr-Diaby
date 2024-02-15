@@ -22,6 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="style/style.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
@@ -51,7 +52,11 @@
             </div>
 
             <div>
-                <a href="logout.php" >log out</a>
+                <a class="btn btn-danger" href="logout.php" >
+                    <span class="icon">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </span>
+                </a>
             </div>
         </nav>
     </section>
@@ -64,7 +69,6 @@
                 <input type="text" name="title" class="form-control w-75 m-auto" placeholder="example:Circles" >
             </div>
            <div>
-            <!-- <a href="createdisk.php?$type='artiste'" type="submit" class="btn btn-primary d-flex mx-auto">Ajouter</a> -->
                <button type="submit" required name="artiste" class="btn btn-primary d-flex mx-auto">Ajouter</button>
            </div>
             <br>
@@ -92,14 +96,17 @@
                         <td><?=$row['date']?></td>
                         <td><?=$_SESSION['label']?></td>  
                         <td>
-                            <a href="updatedisk.php?id=<?=$row['id']?>&type=artiste">update</a>
-                            <a href="deletedisk.php?id=<?=$row['id']?>&type=artiste">delete</a>
+                            <a class="btn btn-success" href="updatedisk.php?id=<?=$row['id']?>&type=artiste">update</a>
+                            <a class="btn btn-danger" href="deletedisk.php?id=<?=$row['id']?>&type=artiste">delete</a>
                         </td>              
                     </tr>
                 <?php  endforeach;?>
             </tbody>
         </table>
     </section>
-    
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

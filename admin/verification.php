@@ -1,6 +1,6 @@
 <?php
-    ini_set('display_errors',1);
-    error_reporting(E_ALL);
+    session_start();
+    
     
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
         $email=$_POST["email"];
@@ -15,10 +15,9 @@
                 $emailbyrow=$row["email"];
                 $passwordhashed=$row['password'];  
                 if(crypt($password,$passwordhashed)){
-                    session_start();
                     echo $_SESSION['nom']=$row['nom'];
                     echo $_SESSION['id']=$row['id'];
-                    header("Location:index.php?nom=".$_SESSION['nom']."&id=".$_SESSION['id']);
+                    header("Location:index.php");
                 } 
             } 
             else{

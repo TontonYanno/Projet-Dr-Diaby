@@ -1,4 +1,11 @@
-<?php require_once"../admin/nbrow.php";?>
+<?php
+session_start();
+if (!$_SESSION) {
+    header("Location:../admin/adminconexion.html"); 
+}
+require_once"../admin/nbrow.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +28,7 @@
                         <span class="icon">
                             <ion-icon name="logo-apple"></ion-icon>
                         </span>
-                        <span class="title"><?=$_GET['nom']?></span>
+                        <span class="title"><?=$_SESSION['nom']?></span>
                     </a>
                 </li>
 
@@ -62,7 +69,7 @@
                 </li>
 
                 <li>
-                    <a href="../html.html">
+                    <a href="logout.php">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
@@ -117,7 +124,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers"><?php  ?></div>
+                        <div class="numbers"><?php   ?></div>
                         <div class="cardName">Disque</div>
                     </div>
 

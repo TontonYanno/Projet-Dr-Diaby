@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disco| Registration</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../inscription/asset/plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="../inscription/asset/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../inscription/asset/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <h1>
+        <span class="fas fa-user h-50 w-50"></span>
+
+      </h1>
+      <!-- <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a> -->
+    </div>
+    <div class="card-body">
+      <p class="login-box-msg">Register a new membership</p>
+
+      <form class="border-rounded" action="../inscription/registration.php" method="post">
+        <div class="input-group mb-3">
+          <input type="text" name="nom" required class="form-control" placeholder="Votre Nom">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" name="label" required class="form-control" placeholder="Votre Label">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-music"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="email" name="email" required class="form-control" placeholder="Email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="password" name="password" required class="form-control" placeholder="Votre mot de passe">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col ">
+          <div class="choice w- m-auto " >
+            <div class="m-auto w-50" >
+                <input type="radio" id="huey" name="type" value="artiste" checked />
+                <label for="artiste">artiste</label>
+            </div >
+            
+            <div class="m-auto w-50" >
+                <input type="radio" id="dewey" name="type" value="groupe" />
+                <label for="groupe">Groupe</label>
+            </div>
+        </div>
+
+          <!-- /.col -->
+          <div class="col-4  m-auto">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <a  href="../project/html.html" type="submit" class="btn btn-danger btn-block">accueil</a>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <a href="../connexion/index.html" class="text-center">Déjà inscrit? Je veut me connecter</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+<!-- jQuery -->
+<script src="../inscription/asset/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../inscription/asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../inscription/asset/dist/js/adminlte.min.js"></script>
+</body>
+</html>
