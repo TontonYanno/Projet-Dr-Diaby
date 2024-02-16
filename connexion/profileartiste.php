@@ -3,6 +3,7 @@
     $id=$_SESSION['id'];
     $_SESSION['label'];
     $_SESSION['nom'];
+    // echo $_SESSION['id_titre']=$row['id'];
     if (!$_SESSION) {
         header("Location:index.html"); 
     }

@@ -3,7 +3,7 @@
 session_start();
 $newtitle=$_POST['title'];
 $id=  $_GET['id'];
-echo$type= $_GET['type'];
+$type=$_GET['type'];
 require_once "../connexion/connexionPDO.php";
 
 $up="UPDATE `disque` SET `titre` = :newtitle WHERE `disque`.`id` = :id ";
@@ -14,7 +14,8 @@ $req->execute();
 
 if ($type=="artiste") {
     header("Location:profileartiste.php");
-}else {
+}
+if($type=="groupe") {
     header("Location:profilegroupe.php");
 }
 

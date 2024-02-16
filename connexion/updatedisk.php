@@ -10,28 +10,72 @@
     $title=$req->fetch(PDO::FETCH_ASSOC);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>update</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disco |Update page</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../inscription/asset/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../inscription/asset/dist/css/adminlte.min.css">
 </head>
-<body>
-        <form  action="setdisk.php?id=<?=$id?>&type=<?=$type?>" method="post" class='w-25 border rounded mx-auto '>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label d-flex mx-auto" style="width:max-content;">Nouveau disque</label>
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+    <!-- Main content -->
+    <section class="content">
+      <form action="../connexion/setdisk.php?id=<?=$id?>&type=<?=$type?>" method="post" class="d-f">
+        
+        <div class="col-md-3 mx-auto " >
+          <div class="card card-warning j ">
+            <div class="card-header">
+              <h3 class="card-title">Budget</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
             </div>
-            <input type="text" name="title" class="form-control w-75 m-auto" value="<?php echo $title["titre"];?>" placeholder="example:Circles" >
-            <div>
-            <br>
-            <button type="submit" required name="create" class="btn btn-warning d-flex mx-auto">update</button>
-            <br>
-        </form>
-    
+            <div class="card-body">
+              <div class="form-group">
+                <label for="inputEstimatedBudget">Modifier le disque</label>
+                <input type="text" name="title" value="<?php echo $title["titre"];?>" id="inputEstimatedBudget" class="form-control" placeholder="Circles" >
+              </div>
+
+               <div class="form-group"> 
+                   <div class="row-6">
+                      <a href="#" class="btn btn-danger">Retour</a>
+                    <input type="submit" value="Modifier" class="btn btn-warning float-right">
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+     </form>
+   
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<!-- jQuery -->
+<script src="../inscription/asset/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../inscription/asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE../inscription/asset-->
+<script src="../inscription/asset/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../inscription/asset/dist/js/demo.js"></script>
 </body>
 </html>
+
 
 
 
