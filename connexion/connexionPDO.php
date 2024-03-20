@@ -1,7 +1,7 @@
 <?php
-$connexion = new PDO('mysql:host=localhost;dbname=discotheque2', "root", "1111");
+$connexion = new PDO('mysql:host=localhost;dbname=discotheque2', "root", "");
 try {
-    $connexion = new PDO("mysql:host=localhost;dbname=discotheque2", "root", "1111");
+    $connexion = new PDO("mysql:host=localhost;dbname=discotheque2", "root", "");
     // Configuration pour afficher les erreurs PDO
     $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
